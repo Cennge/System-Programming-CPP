@@ -1,0 +1,8 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/System-Programming-CPP
+/System-Programming-CPP/System-P.4b55be67/x64/Debug
+/System-Programming-CPP/x64/Debug
+/x64/Debug
