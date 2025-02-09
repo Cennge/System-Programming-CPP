@@ -15,11 +15,53 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
+int AskUser(int guess) {
+    wchar_t buffer[50];
+    swprintf(buffer, 50, L"Ваше число %d?", guess);
+
+    int result = MessageBox(NULL, buffer, L"Угадай число", MB_YESNOCANCEL | MB_ICONQUESTION);
+    if (result == IDYES) return 0;
+    if (result == IDCANCEL) return -2;  // Если пользователь нажал "Отмена" — выход из игры
+
+    result = MessageBox(NULL, L"Ваше число больше?", L"Угадай число", MB_YESNO | MB_ICONQUESTION);
+    if (result == IDYES) return 1;
+
+    return -1;  // Если нажали "Нет", значит число меньше
+}
+
+void PlayGame() {
+    int low = 1, high = 100, attempts = 0;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        int response = AskUser(mid);
+        attempts++;
+
+        if (response == 0) {
+            wchar_t buffer[50];
+            swprintf(buffer, 50, L"Число угадано за %d попыток!", attempts);
+            MessageBox(NULL, buffer, L"Победа!", MB_OK | MB_ICONINFORMATION);
+            break;
+        }
+        else if (response == 1) {
+            low = mid + 1;
+        }
+        else if (response == -1) {
+            high = mid - 1;
+        }
+        else {
+            return;  // Если нажали "Отмена", выходим из игры
+        }
+    }
+
+    int retry = MessageBox(NULL, L"Хотите сыграть еще раз?", L"Новая игра", MB_YESNO | MB_ICONQUESTION);
+    if (retry == IDYES) PlayGame();
+}
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     _In_opt_ HINSTANCE hPrevInstance,
     _In_ LPWSTR    lpCmdLine,
     _In_ int       nCmdShow)
 {
+    PlayGame();
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
