@@ -21,12 +21,12 @@ int AskUser(int guess) {
 
     int result = MessageBox(NULL, buffer, L"Угадай число", MB_YESNOCANCEL | MB_ICONQUESTION);
     if (result == IDYES) return 0;
-    if (result == IDCANCEL) return -2;  // Если пользователь нажал "Отмена" — выход из игры
+    if (result == IDCANCEL) return -2; 
 
     result = MessageBox(NULL, L"Ваше число больше?", L"Угадай число", MB_YESNO | MB_ICONQUESTION);
     if (result == IDYES) return 1;
 
-    return -1;  // Если нажали "Нет", значит число меньше
+    return -1;
 }
 
 void PlayGame() {
@@ -49,7 +49,7 @@ void PlayGame() {
             high = mid - 1;
         }
         else {
-            return;  // Если нажали "Отмена", выходим из игры
+            return; 
         }
     }
 
