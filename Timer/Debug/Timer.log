@@ -1,3 +1,7 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   Timer.cpp
-  Timer.vcxproj -> C:\Users\Glxba_bi19\Desktop\Timer_CALLBACK-функция\Debug\Timer.exe
+C:\Users\Glxba_bi19\source\repos\System-Programming-CPP\Timer\resource.h(9,1): warning C4005: 'IDC_CURSOR1': macro redefinition
+C:\Users\Glxba_bi19\source\repos\System-Programming-CPP\Timer\resource.h(7,1): message : see previous definition of 'IDC_CURSOR1'
+C:\Users\Glxba_bi19\source\repos\System-Programming-CPP\Timer\resource.h(10,1): warning C4005: 'IDI_ICON1': macro redefinition
+C:\Users\Glxba_bi19\source\repos\System-Programming-CPP\Timer\resource.h(6,1): message : see previous definition of 'IDI_ICON1'
+  Timer.vcxproj -> C:\Users\Glxba_bi19\source\repos\System-Programming-CPP\Debug\Timer.exe

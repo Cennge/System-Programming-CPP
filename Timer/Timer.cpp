@@ -1,5 +1,10 @@
+#define WIN32_LEAN_AND_MEAN 
 #include <windows.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include <memory.h>
 #include <tchar.h>
+#include "resource.h"
 #include <time.h>
 
 LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
@@ -17,8 +22,8 @@ int WINAPI _tWinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPTSTR lpszCmdLine, i
 	wcl.cbClsExtra = 0;	
 	wcl.cbWndExtra = 0; 	
 	wcl.hInstance = hInst;	
-	wcl.hIcon = LoadIcon(NULL, IDI_APPLICATION);	
-	wcl.hCursor = LoadCursor(NULL, IDC_ARROW);	
+	wcl.hIcon = LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON1));
+	wcl.hCursor = LoadCursor(hInst, MAKEINTRESOURCE(IDC_CURSOR1));
 	wcl.hbrBackground = (HBRUSH) GetStockObject(WHITE_BRUSH); 
 	wcl.lpszMenuName = NULL;	
 	wcl.lpszClassName = szClassWindow;	
