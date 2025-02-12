@@ -98,11 +98,14 @@
     <ResourceCompile Include="Timer.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\Desktop\Overwatch\Blackwatch Pointer\Png\unavailiable.png" />
     <Image Include="..\..\..\..\Downloads\counterstrike_11723.ico" />
     <Image Include="toolbar1.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Desktop\Overwatch\Blackwatch Pointer\link.cur" />
     <None Include="..\..\..\..\Desktop\Overwatch\Blackwatch Pointer\pointer.cur" />
+    <None Include="..\..\..\..\Desktop\Overwatch\Blackwatch Pointer\unavailiable.cur" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

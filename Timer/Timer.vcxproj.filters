@@ -36,9 +36,18 @@
     <Image Include="..\..\..\..\Downloads\counterstrike_11723.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\..\..\Desktop\Overwatch\Blackwatch Pointer\Png\unavailiable.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Desktop\Overwatch\Blackwatch Pointer\pointer.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\Overwatch\Blackwatch Pointer\unavailiable.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\Overwatch\Blackwatch Pointer\link.cur">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
