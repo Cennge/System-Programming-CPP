@@ -70,6 +70,22 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
+	case WM_LBUTTONDOWN:
+	{
+		RECT rect;
+		GetClientRect(hWnd, &rect);
+		int x = LOWORD(lParam);
+		if (x >= 0 && x <= rect.right / 3) {
+			MessageBox(hWnd, TEXT("1 сторона"), TEXT("Сообщение"), MB_OK);
+		}
+		else if (x >= 2 * rect.right / 3 && x <= rect.right) {
+			MessageBox(hWnd, TEXT("3 сторона"), TEXT("Сообщение"), MB_OK);
+		}
+		else {
+			MessageBox(hWnd, TEXT("2 сторона"), TEXT("Сообщение"), MB_OK);
+		}
+		break;
+	}
 	case WM_KEYDOWN:
 		if (wParam == VK_RETURN) MoveWindow(hWnd, 0, 0, 300, 300, true);
 

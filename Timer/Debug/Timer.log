@@ -1,3 +1,15 @@
-﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  Timer.cpp
-  Timer.vcxproj -> C:\Users\Glxba_bi19\source\repos\System-Programming-CPP\Debug\Timer.exe
+﻿  
+Timer.rc(63): error RC2135: file not found: C:\Users\Glxba_bi19\Downloads\counterstrike_11723.ico
+  
+  
+Timer.rc(71): error RC2135: file not found: C:\Users\Glxba_bi19\Desktop\Overwatch\Blackwatch Pointer\pointer.cur
+  
+  
+Timer.rc(73): error RC2135: file not found: C:\Users\Glxba_bi19\Desktop\Overwatch\Blackwatch Pointer\unavailiable.cur
+  
+  
+Timer.rc(75): error RC2135: file not found: C:\Users\Glxba_bi19\Desktop\Overwatch\Blackwatch Pointer\link.cur
+  
+  
+Timer.rc(83): error RC2135: file not found: C:\Users\Glxba_bi19\Desktop\Overwatch\Blackwatch Pointer\Png\unavailiable.png
+  
