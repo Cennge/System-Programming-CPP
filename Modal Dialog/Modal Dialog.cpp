@@ -3,11 +3,8 @@
 #include "resource.h"
 
 BOOL CALLBACK DlgProc(HWND, UINT, WPARAM, LPARAM);
-void CreateStatic(HWND, int, int, int, int);
 
-POINT startPoint;
-bool isDragging = false;
-int staticCount = 0;
+void CreateButton(HWND hWnd, int x, int y, int width, int height, int id, LPCWSTR text);
 
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPTSTR lpszCmdLine, int nCmdShow)
 {
@@ -16,32 +13,12 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPTSTR lpszCmdLin
 
 BOOL CALLBACK DlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    RECT rect;
+    GetWindowRect(hWnd, &rect);
     switch (message)
     {
-    case WM_LBUTTONDOWN:
-        startPoint.x = LOWORD(lParam);
-        startPoint.y = HIWORD(lParam);
-        isDragging = true;
-        return TRUE;
-
-    case WM_LBUTTONUP:
-        if (isDragging)
-        {
-            int x1 = startPoint.x;
-            int y1 = startPoint.y;
-            int x2 = LOWORD(lParam);
-            int y2 = HIWORD(lParam);
-
-            int left = min(x1, x2);
-            int top = min(y1, y2);
-            int width = max(10, abs(x2 - x1));
-            int height = max(10, abs(y2 - y1));
-
-            if (width == 10 or height == 10) MessageBox(hWnd, _T("Меньше 10x10"), _T("!!!"), MB_OK | MB_ICONWARNING);
-            else CreateStatic(hWnd, left, top, width, height);
-            
-            isDragging = false;
-        }
+    case WM_INITDIALOG: 
+        CreateButton(hWnd, 50, 50, 100, 100, 1, L"Click Me");
         return TRUE;
 
     case WM_CLOSE:
@@ -51,11 +28,10 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     return FALSE;
 }
 
-void CreateStatic(HWND hWnd, int x, int y, int width, int height)
+void CreateButton(HWND hWnd, int x, int y, int width, int height, int id, LPCWSTR text)
 {
-    TCHAR buffer[10];
-    wsprintf(buffer, _T("%d"), staticCount++);
-
-    CreateWindow(_T("STATIC"), buffer, WS_CHILD | WS_VISIBLE | SS_CENTER | WS_BORDER,
-        x, y, width, height, hWnd, NULL, GetModuleHandle(NULL), NULL);
+    CreateWindow(
+        L"BUTTON", text, WS_CHILD | WS_VISIBLE | BS_CENTER | WS_BORDER,
+        x, y, width, height, hWnd,
+        (HMENU)id, GetModuleHandle(NULL), NULL);
 }
