@@ -13,23 +13,9 @@
 #define IDC_WINDOWSPROJECT4             109
 #define IDR_MAINFRAME                   128
 #define IDD_DIALOG1                     129
-#define IDC_BUTTON1                     1000
-#define IDC_RADIO1                      1001
-#define IDC_RADIO2                      1002
-#define IDC_CHECK1                      1003
-#define IDC_RADIO4                      1004
-#define IDC_STATIC1                     1005
-#define IDC_RADIO3                      1008
-#define IDC_RADIO5                      1009
-#define IDC_RADIO6                      1010
-#define IDC_RADIO7                      1011
-#define IDC_RADIO8                      1012
-#define IDC_RADIO9                      1013
-#define IDC_CHECK2                      1023
-#define IDC_CHECK3                      1024
-#define IDC_CHECK4                      1028
-#define IDC_CHECK5                      1029
-#define IDC_CHECK6                      1030
+#define IDC_EDIT1                       1006
+#define IDC_EDIT2                       1007
+#define IDC_BUTTON1                     1008
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -39,7 +25,7 @@
 #define _APS_NO_MFC                     1
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1006
+#define _APS_NEXT_CONTROL_VALUE         1009
 #define _APS_NEXT_SYMED_VALUE           110
 #endif
 #endif
