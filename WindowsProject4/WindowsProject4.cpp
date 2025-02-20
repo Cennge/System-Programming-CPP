@@ -25,10 +25,8 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             int count = 10 + rand() % 11;
 
             for (int i = 0; i < count; i++) {
-                int number;
-                do {
-                    number = -10 + rand() % 21;
-                } while (number == 0);
+                int number = rand() % 10 + 1;
+                if (rand() % 2) number = -number;
 
                 TCHAR buffer[10];
                 _stprintf_s(buffer, _T("%d"), number);
