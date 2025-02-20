@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <tchar.h>
+#include <ctime>
 #include "resource.h"
 
 BOOL CALLBACK DlgProc(HWND, UINT, WPARAM, LPARAM);
@@ -7,26 +8,32 @@ BOOL CALLBACK DlgProc(HWND, UINT, WPARAM, LPARAM);
 
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPTSTR lpszCmdLine, int nCmdShow)
 {
-
-    // создаём главное окно приложения на основе модального диалога
+    srand((unsigned)time(0));
     return DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, (DLGPROC)DlgProc);
 }
 
 BOOL CALLBACK DlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    TCHAR login[20], password[20];
     switch (message)
     {
     case WM_COMMAND:
-        if (LOWORD(wParam) == IDC_BUTTON1) {             
-            GetDlgItemText(hWnd, IDC_EDIT1, login, 20);
-            GetDlgItemText(hWnd, IDC_EDIT2, password, 20);
+        if (LOWORD(wParam) == IDC_BUTTON1) {
+            HWND hList = GetDlgItem(hWnd, IDC_LIST1);
 
-            if (_tcscmp(login, _T("admin")) == 0 && _tcscmp(password, _T("admin")) == 0) {
-                MessageBox(hWnd, _T("Админ"), _T("Сообщение"), MB_OK | MB_ICONINFORMATION);
-            }
-            else {
-                MessageBox(hWnd, _T("User"), _T("Сообщение"), MB_OK | MB_ICONINFORMATION);
+            SendMessage(hList, LB_RESETCONTENT, 0, 0);
+
+            int count = 10 + rand() % 11;
+
+            for (int i = 0; i < count; i++) {
+                int number;
+                do {
+                    number = -10 + rand() % 21;
+                } while (number == 0);
+
+                TCHAR buffer[10];
+                _stprintf_s(buffer, _T("%d"), number);
+
+                SendMessage(hList, LB_ADDSTRING, 0, (LPARAM)buffer);
             }
         }
         return TRUE;
