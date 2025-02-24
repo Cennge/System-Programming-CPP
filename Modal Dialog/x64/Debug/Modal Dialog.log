@@ -1,0 +1,4 @@
+﻿  Modal Dialog.cpp
+C:\Users\ilyag\source\repos\Cennge\System-Programming-CPP\Modal Dialog\Modal Dialog.cpp(20,12): warning C4244: return: преобразование "INT_PTR" в "int", возможна потеря данных
+C:\Users\ilyag\source\repos\Cennge\System-Programming-CPP\Modal Dialog\Modal Dialog.cpp(83,5): warning C4312: приведение типов: преобразование из "int" в "HMENU" большего размера
+  Modal Dialog.vcxproj -> C:\Users\ilyag\source\repos\Cennge\System-Programming-CPP\x64\Debug\Modal Dialog.exe

@@ -14,21 +14,29 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPTSTR lpszCmdLin
 
 BOOL CALLBACK DlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    int score;
+    static int score = 0;
     switch (message)
     {
     case WM_COMMAND:
         if (LOWORD(wParam) == IDC_BUTTON1) {
+            score = 0;
+
+            if (IsDlgButtonChecked(hWnd, IDC_RADIO6) == BST_CHECKED) score += 20;
+            if (IsDlgButtonChecked(hWnd, IDC_RADIO1) == BST_CHECKED) score += 20;
+            if (IsDlgButtonChecked(hWnd, IDC_RADIO8) == BST_CHECKED) score += 20;
+            if (IsDlgButtonChecked(hWnd, IDC_CHECK1) == BST_CHECKED) score += 10;
+            if (IsDlgButtonChecked(hWnd, IDC_CHECK3) == BST_CHECKED) score += 10;
+            if (IsDlgButtonChecked(hWnd, IDC_CHECK4) == BST_CHECKED) score += 10;
+            if (IsDlgButtonChecked(hWnd, IDC_CHECK5) == BST_CHECKED) score += 10;
+
             wchar_t buffer[20];
             swprintf(buffer, 20, L"%d/100", score);
             SetWindowText(GetDlgItem(hWnd, IDC_STATIC1), buffer);
         }
-        if (LOWORD(wParam) == IDC_RADIO6) SetWindowText(GetDlgItem(hWnd, IDC_STATIC1), L"2/100");
     case WM_SHOWWINDOW:
-        //MessageBox(0, TEXT("Test"), 0, MB_OK);
         return TRUE;
     case WM_CLOSE:
-        EndDialog(hWnd, 0); // закрываем модальный диалог
+        EndDialog(hWnd, 0);
         return TRUE;
     }
     return FALSE;
