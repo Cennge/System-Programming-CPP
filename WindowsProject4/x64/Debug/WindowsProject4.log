@@ -1,3 +1,9 @@
 ﻿  WindowsProject4.cpp
-C:\Users\Glxba_bi19\source\repos\WindowsProject4\WindowsProject4\WindowsProject4.cpp(12,12): warning C4244: 'return': conversion from 'INT_PTR' to 'int', possible loss of data
-  WindowsProject4.vcxproj -> C:\Users\Glxba_bi19\source\repos\WindowsProject4\x64\Debug\WindowsProject4.exe
+C:\Users\ilyag\source\repos\Cennge\System-Programming-CPP\WindowsProject4\WindowsProject4.cpp(11,12): warning C4244: return: преобразование "INT_PTR" в "int", возможна потеря данных
+WindowsProject4.rc(85): warning RC2182: duplicate dialog control ID 1
+  
+WindowsProject4.rc(86): warning RC2182: duplicate dialog control ID 1
+  
+WindowsProject4.rc(87): warning RC2182: duplicate dialog control ID 1
+  
+  WindowsProject4.vcxproj -> C:\Users\ilyag\source\repos\Cennge\System-Programming-CPP\x64\Debug\WindowsProject4.exe
