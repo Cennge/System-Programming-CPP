@@ -1,1 +1,4 @@
-﻿  Seasons.vcxproj -> C:\Users\Glxba_bi19\Downloads\Seasons\Debug\Seasons.exe
+﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  Seasons.cpp
+Seasons.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  Seasons.vcxproj -> C:\Users\Glxba_bi19\Downloads\Seasons\Debug\Seasons.exe
