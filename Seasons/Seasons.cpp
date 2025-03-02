@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <fstream>
 #include "resource.h"
+#include <commctrl.h>
 
 using namespace std;
 
@@ -37,15 +38,25 @@ DWORD WINAPI CopyFileThread(LPVOID lpParam)
     ofstream paste(data->pastePath, ios::binary);
 
     if (src && paste) {
+        src.seekg(0, ios::end);
+        long fileSize = src.tellg();
+        src.seekg(0, ios::beg);
+
         char ch;
-        while (src.get(ch)) { 
+        long copiedSize = 0;
+        HWND hProgress = GetDlgItem(data->hWnd, IDC_PROGRESS1);
+        SendMessage(hProgress, PBM_SETRANGE, 0, MAKELPARAM(0, 100));
+
+        while (src.get(ch)) {
             Sleep(10);
-            paste.put(ch);      
+            paste.put(ch);
+            copiedSize++;
+            SendMessage(hProgress, PBM_SETPOS, (copiedSize * 100) / fileSize, 0);
         }
         MessageBoxA(data->hWnd, "Файл скопирован", "Ура", MB_OK | MB_ICONINFORMATION);
     }
     else {
-        MessageBoxA(data->hWnd, "Ошибка при открытии файлов :((((", "Ошибка", MB_OK | MB_ICONERROR);
+        MessageBoxA(data->hWnd, "Ошибка при открытии файлов :(((", "Ошибка", MB_OK | MB_ICONERROR);
     }
 
     delete data;

@@ -1,4 +1,5 @@
-﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+﻿cl : командная строка  warning D9035: использование параметра "Gm" нежелательно, он будет удален в следующих выпусках
   Seasons.cpp
-Seasons.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  Seasons.vcxproj -> C:\Users\Glxba_bi19\Downloads\Seasons\Debug\Seasons.exe
+C:\Users\ilyag\source\repos\WindowsProject1\Seasons\Seasons.cpp(42,23): warning C4244: инициализация: преобразование "std::streamoff" в "long", возможна потеря данных
+Seasons.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/SAFESEH"
+  Seasons.vcxproj -> C:\Users\ilyag\source\repos\WindowsProject1\Debug\Seasons.exe
