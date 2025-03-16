@@ -14,37 +14,41 @@ HWND hStart;
 
 BOOL CALLBACK DlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    switch (message)
-    {
+    switch (message) {
     case WM_INITDIALOG:
         hStart = GetDlgItem(hWnd, IDC_BUTTON1);
-
         return TRUE;
+
     case WM_COMMAND:
-        if (wParam == IDC_BUTTON1)
-        {
-            CreateMutex(0, FALSE, TEXT("{9509D0D4-3552-4E02-B278-6A6E8F97206B}"));
-            STARTUPINFO st = { sizeof(st) };
-            PROCESS_INFORMATION pr;
-            TCHAR filename[20];
-            wsprintf(filename, TEXT("%s"), TEXT("Write.exe"));
-            if (!CreateProcess(NULL, filename, NULL, NULL, 0, 0, NULL, NULL, &st, &pr))
-            {
+        if (LOWORD(wParam) == IDC_BUTTON1) {
+            CreateMutex(NULL, FALSE, TEXT("{9509D0D4-3552-4E02-B278-6A6E8F97206B}"));
+
+            STARTUPINFO si = { sizeof(si) };
+            PROCESS_INFORMATION pi;
+            TCHAR filename[MAX_PATH];
+
+            _tcscpy_s(filename, TEXT("Write.exe"));
+
+            if (!CreateProcess(NULL, filename, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
                 return FALSE;
             }
-            CloseHandle(pr.hThread);
-            CloseHandle(pr.hProcess);
-            ZeroMemory(&st, sizeof(st));
-            st.cb = sizeof(st);
-            wsprintf(filename, TEXT("%s"), TEXT("Read.exe"));
-            if (!CreateProcess(NULL, filename, NULL, NULL, 0, 0, NULL, NULL, &st, &pr))
-            {
+
+            CloseHandle(pi.hThread);
+            CloseHandle(pi.hProcess);
+
+            ZeroMemory(&si, sizeof(si));
+            si.cb = sizeof(si);
+
+            _tcscpy_s(filename, TEXT("Read.exe"));
+
+            if (!CreateProcess(NULL, filename, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
                 return FALSE;
             }
-            CloseHandle(pr.hThread);
-            CloseHandle(pr.hProcess);
+            CloseHandle(pi.hThread);
+            CloseHandle(pi.hProcess);
         }
         return TRUE;
+
     case WM_CLOSE:
         EndDialog(hWnd, 0);
         return TRUE;
